@@ -1,0 +1,13 @@
+.frmTimNgay {
+  display: flex;
+  align-items: center;
+}
+
+.frmTimNgay label {
+  margin: 0;
+}
+
+.frmText {
+  width: 15%;
+  margin: 0 10px;
+}
