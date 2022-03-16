@@ -338,73 +338,56 @@ document.getElementById("btnDocSo").onclick = function () {
  */
 
 document.getElementById("btnIn").onclick = function () {
-  var tenSinhVien1 = "Nguyen Van A";
-  var tenSinhVien2 = "Nguyen Van B";
-  var tenSinhVien3 = "Nguyen Van C";
-  var aA = 15;
-  var bA = 20;
+  // Lay value sinh vien 1
+  var tenSV_1 = document.getElementById("txttenSV_1").value;
+  var xA = document.getElementById("txttoaDoSV_1__xA").value * 1;
+  var yA = document.getElementById("txttoaDoSV_1__yA").value * 1;
+  var zA = document.getElementById("txttoaDoSV_1__zA").value * 1;
 
-  // Khoang cach sinh vien 1
-  var xSV1 = 5;
-  var ySV1 = 10;
+  // Lay value sinh vien 2
+  var tenSV_2 = document.getElementById("txttenSV_2").value;
+  var xB = document.getElementById("txttoaDoSV_2__xB").value * 1;
+  var yB = document.getElementById("txttoaDoSV_2__yB").value * 1;
+  var zB = document.getElementById("txttoaDoSV_2__zB").value * 1;
+
+  // Lay value sinh vien 3
+  var tenSV_3 = document.getElementById("txttenSV_3").value;
+  var xC = document.getElementById("txttoaDoSV_3__xC").value * 1;
+  var yC = document.getElementById("txttoaDoSV_3__yC").value * 1;
+  var zC = document.getElementById("txttoaDoSV_3__zC").value * 1;
+
+  // Lay value cua truong
+  var xD = document.getElementById("txttoaDoTruong__xD").value * 1;
+  var yD = document.getElementById("txttoaDoTruong__yD").value * 1;
+  var zD = document.getElementById("txttoaDoTruong__zD").value * 1;
+
+  // Tinh khoang cach sinh vien 1
   var khoangCachSV1 = Math.sqrt(
-    (aA - xSV1) * (aA - xSV1) + (bA - ySV1) * (bA - ySV1)
+    (xD - xA) * (xD - xA) + (yD - yA) * (yD - yA) + (zD - zA) * (zD - zA)
   );
 
-  // Khoang cach sinh vien 2
-  var xSV2 = 8;
-  var ySV2 = 11;
+  // Tinh khoang cach sinh vien 2
   var khoangCachSV2 = Math.sqrt(
-    (aA - xSV2) * (aA - xSV2) + (bA - ySV2) * (bA - ySV2)
+    (xD - xB) * (xD - xB) + (yD - yB) * (yD - yB) + (zD - zB) * (zD - zB)
   );
 
-  // Khoang cach sinh vien 3
-  var xSV3 = 2;
-  var ySV3 = 1;
+  // Tinh khoang cach sinh vien 3
   var khoangCachSV3 = Math.sqrt(
-    (aA - xSV3) * (aA - xSV3) + (bA - ySV3) * (bA - ySV3)
+    (xD - xC) * (xD - xC) + (yD - yC) * (yD - yC) + (zD - zC) * (zD - zC)
   );
 
+  // So sanh
   var khoangCach;
   if (khoangCachSV1 > khoangCachSV2 && khoangCachSV1 > khoangCachSV3) {
-    khoangCach = tenSinhVien1;
+    khoangCach = tenSV_1;
   } else if (khoangCachSV2 > khoangCachSV1 && khoangCachSV2 > khoangCachSV3) {
-    khoangCach = tenSinhVien2;
+    khoangCach = tenSV_2;
   } else if (khoangCachSV3 > khoangCachSV1 && khoangCachSV3 > khoangCachSV2) {
-    khoangCach = tenSinhVien3;
+    khoangCach = tenSV_3;
   }
 
-  var ketQua = "<div>";
-  ketQua +=
-    "1. Tên sinh viên 1:" +
-    tenSinhVien1 +
-    "<br>     Toạ độ nhà: (" +
-    xSV1 +
-    "," +
-    ySV1 +
-    ") <br>";
-  ketQua +=
-    "2. Tên sinh viên 2: " +
-    tenSinhVien2 +
-    "<br> Toạ độ nhà: (" +
-    xSV2 +
-    "," +
-    ySV2 +
-    ") <br>";
-  ketQua +=
-    "3. Tên sinh viên 3: " +
-    tenSinhVien3 +
-    "<br> Toạ độ nhà: (" +
-    xSV3 +
-    "," +
-    ySV3 +
-    ") <br>";
-  ketQua +=
-    "<p style='color:red; font-size:20px'>" +
-    "==> Sinh viên xa trường nhất là: " +
-    khoangCach +
-    "</p>";
-  ketQua += "</div>";
-
+  var ketQua = "Sinh viên xa trường nhất là: " + khoangCach;
   document.getElementById("footerSinhVienXaNhat").innerHTML = ketQua;
+  document.getElementById("footerSinhVienXaNhat").style.color = "red";
+  document.getElementById("footerSinhVienXaNhat").style.fontSize = "20px";
 };
